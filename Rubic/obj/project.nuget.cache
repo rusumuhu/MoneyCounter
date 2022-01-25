@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XUXKZSB0GkzHGM/r3FENIjnjB51vGICshHSjp/UuXsZiKESe6a8jiMadHjXkYMtjYGqD2XVYrGFNPPU4hUqwgw==",
+  "dgSpecHash": "kWk/3G30yHgHfTYrOIhfT6d36uuZx36ulx4GD9WYtTRKab2CETymDm1NBIo027fmYACIDQc9Gwmybns2/dV0Ng==",
   "success": true,
-  "projectFilePath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\Rubic.csproj",
+  "projectFilePath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\Rubic.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\StudentDev\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\StudentDev\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",

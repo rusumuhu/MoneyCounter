@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\Rubic.csproj": {}
+    "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\Rubic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\Rubic.csproj": {
+    "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\Rubic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\Rubic.csproj",
+        "projectUniqueName": "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\Rubic.csproj",
         "projectName": "Rubic",
-        "projectPath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\Rubic.csproj",
+        "projectPath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\Rubic.csproj",
         "packagesPath": "C:\\Users\\StudentDev\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\Rubic\\obj\\",
+        "outputPath": "C:\\Users\\StudentDev\\Desktop\\Rubic\\MoneyCounter\\Rubic\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
