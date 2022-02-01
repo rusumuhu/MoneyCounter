@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,10 +17,12 @@ namespace Rubic.Controllers
     public class UserController : ControllerBase
     {
         public MoneyBotContext _context;
+        public IMapper _mapper;
 
-        public UserController(MoneyBotContext context)
+        public UserController(MoneyBotContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost("register")]
@@ -51,18 +54,16 @@ namespace Rubic.Controllers
             return Ok();
         }
 
-        [HttpPost("Get")]
-        public async Task<User> Get(UserIdentity userIdentity)
+        [HttpPost("{userId}")]
+        public async Task<ActionResult<UserInformationDto>> Get(int userId)
         {
-            User user = await _context.Users.FirstOrDefaultAsync(
-                u => u.PhoneNumberPrefix == userIdentity.PhoneNumberPrefix &&
-                u.PhoneNumber == userIdentity.PhoneNumber &&
-                u.Password == userIdentity.Password
-                );
+            User user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
 
             if (user == null) return NotFound();
 
-            return user;
+            UserInformationDto userInformationDto = _mapper.Map<UserInformationDto>(user);
+
+            return userInformationDto;
         }
     }
 }
