@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rubic.DbContext;
 
 namespace Rubic.Migrations
 {
     [DbContext(typeof(MoneyBotContext))]
-    partial class MoneyBotContextModelSnapshot : ModelSnapshot
+    [Migration("20220206182043_UserEdit")]
+    partial class UserEdit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,16 +24,16 @@ namespace Rubic.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime?>("DateTime")
+                    b.Property<DateTime?>("Date")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Operation")
                         .HasColumnType("TEXT");
 
-                    b.Property<double>("Sum")
-                        .HasColumnType("REAL");
+                    b.Property<int>("Summ")
+                        .HasColumnType("INTEGER");
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -71,9 +73,7 @@ namespace Rubic.Migrations
                 {
                     b.HasOne("Rubic.Models.User", "User")
                         .WithMany("Moneys")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
