@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Rubic.DbContext;
@@ -16,20 +17,22 @@ namespace Rubic.Controllers
     public class MoneyController : ControllerBase
     {
         private MoneyBotContext _context;
+        private IMapper _mapper;
 
-        public MoneyController(MoneyBotContext context)
+        public MoneyController(MoneyBotContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
 
         [HttpPost("add/{userId}")]
-        public async Task<ActionResult> AddMoneyOperation([FromQuery] int userId, [FromBody] MoneyOperation moneyOperation)
+        public async Task<ActionResult> AddMoneyOperation([FromRoute] int userId, [FromBody] MoneyOperation moneyOperation)
         {
             Money money = new Money()
             {
                 Sum = moneyOperation.Sum,
-                Operation = moneyOperation.Operation,
-                DateTime = moneyOperation.DateTime,
+                Operation = moneyOperation.Operation.ToLower(),
+                DateTime = DateTime.Now,
                 UserId = userId
             };
 
@@ -41,7 +44,7 @@ namespace Rubic.Controllers
         }
 
         [HttpGet("{userId}")]
-        public async Task<ActionResult<List<Money>>> GetMoneyOperations(int userId)
+        public async Task<ActionResult<List<MoneyOperation>>> GetMoneyOperations(int userId)
         {
             bool isExistUser = await _context.Users.AnyAsync(h => h.Id == userId);
 
@@ -51,7 +54,14 @@ namespace Rubic.Controllers
 
             if (operations == null) return NotFound();
 
-            return operations;
+            List<MoneyOperation> moneyOperations = new List<MoneyOperation>();
+
+            for (int i = 0; i < operations.Count; i++)
+            {
+                moneyOperations.Add(_mapper.Map<MoneyOperation>(operations[i]));
+            }
+
+            return moneyOperations;
         }
 
         [HttpGet("{userId}/{skipCount}/{countMoneyOperations}")]

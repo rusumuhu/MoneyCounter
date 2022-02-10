@@ -9,8 +9,8 @@ using Rubic.DbContext;
 namespace Rubic.Migrations
 {
     [DbContext(typeof(MoneyBotContext))]
-    [Migration("20220208161457_addUserIdToMoney")]
-    partial class addUserIdToMoney
+    [Migration("20220210151248_InitialCreate")]
+    partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

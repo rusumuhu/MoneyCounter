@@ -49,12 +49,12 @@ namespace Rubic.Controllers
                 u.Password == userIdentity.Password
                 );
 
-            if (user == null) return NotFound();
+            if (user == null) return NotFound("Неверный логин или пароль");
 
-            return Ok();
+            return Ok("Успешная авторизация");
         }
 
-        [HttpPost("{userId}")]
+        [HttpGet("{userId}")]
         public async Task<ActionResult<UserInformationDto>> Get(int userId)
         {
             User user = await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);

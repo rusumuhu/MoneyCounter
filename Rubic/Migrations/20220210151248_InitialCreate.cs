@@ -14,7 +14,9 @@ namespace Rubic.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     PhoneNumberPrefix = table.Column<int>(nullable: false),
-                    PhoneNumber = table.Column<int>(nullable: false),
+                    PhoneNumber = table.Column<long>(nullable: false),
+                    Name = table.Column<string>(nullable: true),
+                    Surname = table.Column<string>(nullable: true),
                     Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -28,10 +30,10 @@ namespace Rubic.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Summ = table.Column<int>(nullable: false),
+                    Sum = table.Column<double>(nullable: false),
                     Operation = table.Column<string>(nullable: true),
-                    Date = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<int>(nullable: true)
+                    DateTime = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +43,7 @@ namespace Rubic.Migrations
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
