@@ -1481,23 +1481,39 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "C:\\Users\\titov\\.nuget\\packages\\": {},
+=======
+    "C:\\Users\\StudentDev\\.nuget\\packages\\": {},
+>>>>>>> 9b129c5d5394178710287414c528e9bfd936ce5f
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\titov\\Documents\\GitHub\\MoneyCounter\\Rubic\\Rubic.csproj",
       "projectName": "Rubic",
       "projectPath": "C:\\Users\\titov\\Documents\\GitHub\\MoneyCounter\\Rubic\\Rubic.csproj",
       "packagesPath": "C:\\Users\\titov\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\titov\\Documents\\GitHub\\MoneyCounter\\Rubic\\obj\\",
+=======
+      "projectUniqueName": "C:\\Users\\StudentDev\\Documents\\GitHub\\note-ps-122019-note\\MoneyCounter\\Rubic\\Rubic.csproj",
+      "projectName": "Rubic",
+      "projectPath": "C:\\Users\\StudentDev\\Documents\\GitHub\\note-ps-122019-note\\MoneyCounter\\Rubic\\Rubic.csproj",
+      "packagesPath": "C:\\Users\\StudentDev\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\StudentDev\\Documents\\GitHub\\note-ps-122019-note\\MoneyCounter\\Rubic\\obj\\",
+>>>>>>> 9b129c5d5394178710287414c528e9bfd936ce5f
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "C:\\Users\\titov\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+        "C:\\Users\\StudentDev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> 9b129c5d5394178710287414c528e9bfd936ce5f
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
