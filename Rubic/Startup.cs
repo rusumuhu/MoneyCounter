@@ -29,6 +29,7 @@ namespace Rubic
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSwaggerGen();
             services.AddControllers();
             services.AddDbContext<MoneyBotContext>(p =>
                 p.UseSqlite("Data Source=usersdata.db; Foreign Keys=True"));
@@ -43,13 +44,26 @@ namespace Rubic
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Zomato API V1");
+
+                // To serve SwaggerUI at application's root page, set the RoutePrefix property to an empty string.
+                c.RoutePrefix = string.Empty;
+            });
+
+
             app.UseRouting();
 
-            app.UseForwarded(new ForwardedHeadersOptions
+            app.UseForwardedHeaders(new ForwardedHeadersOptions
             {
-                ForwardedHeaders = ForwardedHeaders.XForwardedFor |
+                ForwardedHeaders = ForwardedHeaders.XForwardedFor | 
                 ForwardedHeaders.XForwardedProto
             });
+
+            app.UseAuthorization();
 
             using var scope = app.ApplicationServices.CreateScope();
 
